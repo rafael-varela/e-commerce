@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { testAction } from './actions';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -13,9 +16,7 @@ class App extends Component {
           </p>
           <a
             className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={this.props.getHelloWorldMessage}
           >
             Learn React
           </a>
@@ -25,4 +26,9 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  getHelloWorldMessage: () => dispatch(testAction())
+});
+
+export default connect(null, mapDispatchToProps)(App);
+
