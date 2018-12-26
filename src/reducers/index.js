@@ -1,16 +1,16 @@
-import { TEST_ACTION } from '../actions';
+import { actionTypes } from '../actions';
 
 const initialState = {
-  text: ''
+  productsList: []
 };
 
 const eCommerceApp = (state = initialState, action) => {
-  console.log(action);
+  console.log(action)
   switch(action.type) {
-    case TEST_ACTION:
+    case actionTypes.PRODUCTS_LIST_SUCCESS:
       return {
         ...state,
-        text: action.text
+        productsList: action.payload
       }
     default:
       return state;
