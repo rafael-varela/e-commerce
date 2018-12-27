@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import { buyProducts } from '../../actions';
 
 const getSubtotal = (price, quantity) => {
   const p = Number(price.replace('$', '').replace(',',''))
@@ -15,7 +16,7 @@ const getTotal = (data) => {
   return `$${total}`;
 }
 
-const Cart = ({ data }) => (
+const Cart = ({ data, buyProducts }) => (
   <div className='cart-container'>
     {data.map(product => (
       <div className='cart-product' key={product._id}>
@@ -32,7 +33,12 @@ const Cart = ({ data }) => (
     ))}
     <div className='cart-total'>
       <p>Total: {getTotal(data)}</p>
-      <button className='cart-button'>Buy</button>
+      <button
+        className='cart-button'
+        onClick={buyProducts}
+      >
+        Buy
+      </button>
     </div>
   </div>
 )

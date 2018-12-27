@@ -6,6 +6,7 @@ const PRODUCTS_DATA_ERROR = 'PRODUCTS_DATA_ERROR';
 const ADD_TO_CART = 'ADD_TO_CART';
 const TOGGLE_GRID = 'TOGGLE_GRID';
 const SELECT_PRODUCT = 'SELECT_PRODUCT';
+const BUY_PRODUCTS = 'BUY_PRODUCTS';
 
 export const addToCart = (data, n) => ({
   type: ADD_TO_CART,
@@ -21,6 +22,10 @@ export const selectProduct = product => ({
   type: SELECT_PRODUCT,
   payload: { product }
 });
+
+export const buyProducts = () => ({
+  type: BUY_PRODUCTS
+})
 
 const productsDataLoading = () => ({
   type: PRODUCTS_DATA_LOADING
@@ -53,5 +58,6 @@ export const actionTypes = {
   PRODUCTS_DATA_ERROR,
   ADD_TO_CART,
   TOGGLE_GRID,
-  SELECT_PRODUCT
+  SELECT_PRODUCT,
+  BUY_PRODUCTS
 };

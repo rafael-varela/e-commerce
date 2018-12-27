@@ -30,6 +30,11 @@ const eCommerceApp = (state = initialState, action) => {
       return {
         ...state,
         selectedProduct: product ? { ...product } : product
+      };
+    case actionTypes.BUY_PRODUCTS:
+      return {
+        ...state,
+        cart: []
       }
     default:
       return state;

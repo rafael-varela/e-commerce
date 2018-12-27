@@ -26,7 +26,12 @@ class Header extends Component {
             className="fas fa-shopping-cart fa-2x"
             onClick={this.onClick}
           />
-          {showCart && (<Cart data={this.props.cart}/>)}
+          {showCart && (
+            <Cart
+              buyProducts={this.props.buyProducts}
+              data={this.props.cart}
+            />
+          )}
         </div>
       </div>
     )
