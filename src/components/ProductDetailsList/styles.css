@@ -1,0 +1,29 @@
+.product-list-details {
+  display: flex;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.product-list-details:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product-list-image {
+  width: 150px;
+}
+
+.product-list-image img {
+  width: 100%;
+}
+
+.product-list-description {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.product-list-price-wrapper {
+  display: flex;
+}

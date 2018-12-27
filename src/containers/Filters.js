@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Filters from '../components/Filters/index';
+import Filters from '../components/Filters';
 import { toggleGrid } from '../actions';
 
 class AppFilters extends Component {

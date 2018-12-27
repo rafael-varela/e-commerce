@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
-import ProductDetailsGrid from '../ProductDetailsGrid'
+import ProductDetailsList from '../ProductDetailsList'
 
-const ProductsGrid = ({data, addToCart}) => (
-  <div className='products-grid-wrapper'>
-    <div className='products-grid'>
+const ProductsList = ({data, addToCart}) => (
+  <div className='products-list-wrapper'>
+    <div className='products-list'>
       {data.map(product => (
-        <ProductDetailsGrid
+        <ProductDetailsList
           data={product}
           addToCart={addToCart}
           key={product._id}
@@ -17,9 +17,9 @@ const ProductsGrid = ({data, addToCart}) => (
   </div>
 );
 
-ProductsGrid.propTypes = {
+ProductsList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   addToCart: PropTypes.func.isRequired
 }
 
-export default ProductsGrid;
+export default ProductsList;

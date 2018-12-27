@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ProductsGrid from '../components/ProductsGrid/index';
+import ProductsGrid from '../components/ProductsGrid';
+import ProductsList from '../components/ProductsList';
 import { getProductsData, addToCart } from '../actions'
 
 class Products extends Component {
@@ -10,11 +11,19 @@ class Products extends Component {
   }
 
   render() {
+    const { grid, productsData, addToCart } = this.props
     return (
-      <ProductsGrid
-        data={this.props.productsData}
-        addToCart={this.props.addToCart}
-      />
+      grid ? (
+        <ProductsGrid
+          data={productsData}
+          addToCart={addToCart}
+        />
+      ) : (
+        <ProductsList
+          data={productsData}
+          addToCart={addToCart}
+        />
+      )
     )
   }
 }

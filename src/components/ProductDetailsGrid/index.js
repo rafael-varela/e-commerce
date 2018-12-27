@@ -2,7 +2,7 @@ import React from 'react';
 import ProductForm from '../ProductForm'
 import './styles.css';
 
-const ProductDetails = ({ data, addToCart }) => (
+const ProductDetailsGrid = ({ data, addToCart }) => (
   <div className='product-details'>
     <div className='product-image'>
       <img alt={data.name} src={data.picture}/>
@@ -19,4 +19,4 @@ const ProductDetails = ({ data, addToCart }) => (
   </div>
 );
 
-export default ProductDetails;
+export default ProductDetailsGrid;
