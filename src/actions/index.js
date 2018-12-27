@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-const PRODUCTS_LIST_LOADING = 'PRODUCTS_LIST_LOADING';
-const PRODUCTS_LIST_SUCCESS = 'PRODUCTS_LIST_SUCCESS';
-const PRODUCTS_LIST_ERROR = 'PRODUCTS_LIST_ERROR';
+const PRODUCTS_DATA_LOADING = 'PRODUCTS_DATA_LOADING';
+const PRODUCTS_DATA_SUCCESS = 'PRODUCTS_DATA_SUCCESS';
+const PRODUCTS_DATA_ERROR = 'PRODUCTS_DATA_ERROR';
 const ADD_TO_CART = 'ADD_TO_CART';
 const TOGGLE_GRID = 'TOGGLE_GRID';
+const SELECT_PRODUCT = 'SELECT_PRODUCT';
 
 export const addToCart = (data, n) => ({
   type: ADD_TO_CART,
@@ -16,35 +17,41 @@ export const toggleGrid = grid => ({
   payload: { grid }
 });
 
-const productsListLoading = () => ({
-  type: PRODUCTS_LIST_LOADING
+export const selectProduct = product => ({
+  type: SELECT_PRODUCT,
+  payload: { product }
 });
 
-const productsListSuccess = (data) => ({
-  type: PRODUCTS_LIST_SUCCESS,
+const productsDataLoading = () => ({
+  type: PRODUCTS_DATA_LOADING
+});
+
+const productsDataSuccess = (data) => ({
+  type: PRODUCTS_DATA_SUCCESS,
   payload: data
 });
 
-const productsListError = () => ({
-  type: PRODUCTS_LIST_ERROR
+const productsDataError = () => ({
+  type: PRODUCTS_DATA_ERROR
 });
 
-export const getProductsList = () => dispatch => {
-  dispatch(productsListLoading());
+export const getProductsData = () => dispatch => {
+  dispatch(productsDataLoading());
   axios
     .get('https://api.myjson.com/bins/wyjyh')
     .then(response => {
-      dispatch(productsListSuccess(response.data))
+      dispatch(productsDataSuccess(response.data))
     })
     .catch(error => {
-      dispatch(productsListError(error));
+      dispatch(productsDataError(error));
     });
 }
 
 export const actionTypes = {
-  PRODUCTS_LIST_LOADING,
-  PRODUCTS_LIST_SUCCESS,
-  PRODUCTS_LIST_ERROR,
+  PRODUCTS_DATA_LOADING,
+  PRODUCTS_DATA_SUCCESS,
+  PRODUCTS_DATA_ERROR,
   ADD_TO_CART,
-  TOGGLE_GRID
+  TOGGLE_GRID,
+  SELECT_PRODUCT
 };

@@ -1,17 +1,18 @@
 import { actionTypes } from '../actions';
 
 const initialState = {
-  productsList: [],
+  productsData: [],
   cart: [],
-  grid: true
+  grid: true,
+  selectedProduct: {}
 };
 
 const eCommerceApp = (state = initialState, action) => {
   switch(action.type) {
-    case actionTypes.PRODUCTS_LIST_SUCCESS:
+    case actionTypes.PRODUCTS_DATA_SUCCESS:
       return {
         ...state,
-        productsList: action.payload
+        productsData: action.payload
       };
     case actionTypes.ADD_TO_CART:
       const { data, n: quantity} = action.payload
@@ -23,6 +24,11 @@ const eCommerceApp = (state = initialState, action) => {
       return {
         ...state,
         grid: action.payload.grid
+      };
+    case actionTypes.SELECT_PRODUCT:
+      return {
+        ...state,
+        selectedProduct: { ...action.payload.product }
       }
     default:
       return state;
