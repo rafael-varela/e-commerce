@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProductsGrid from '../components/ProductsGrid';
 import ProductsList from '../components/ProductsList';
-import { getProductsData, addToCart } from '../actions'
+import SelectedProductDetails from '../components/SelectedProductDetails';
+import { getProductsData, addToCart, selectProduct } from '../actions'
 
 class Products extends Component {
 
@@ -11,17 +12,25 @@ class Products extends Component {
   }
 
   render() {
-    const { grid, productsData, addToCart } = this.props
+    const { grid, productsData, addToCart, selectedProduct, selectProduct, goToProducts } = this.props
     return (
-      grid ? (
+      selectedProduct ? (
+        <SelectedProductDetails
+          data={selectedProduct}
+          addToCart={addToCart}
+          goBack={() => selectProduct(null)}
+        />
+      ) : grid ? (
         <ProductsGrid
           data={productsData}
           addToCart={addToCart}
+          selectProduct={selectProduct}
         />
       ) : (
         <ProductsList
           data={productsData}
           addToCart={addToCart}
+          selectProduct={selectProduct}
         />
       )
     )
@@ -30,12 +39,14 @@ class Products extends Component {
 
 const mapStateToProps = state => ({
   productsData: state.productsData,
-  grid: state.grid
+  grid: state.grid,
+  selectedProduct: state.selectedProduct
 })
 
 const mapDispatchToProps = dispatch => ({
   getProductsData: () => dispatch(getProductsData()),
-  addToCart: (data, n) => dispatch(addToCart(data, n))
+  addToCart: (data, n) => dispatch(addToCart(data, n)),
+  selectProduct: (data) => dispatch(selectProduct(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import './styles.css';
 import ProductDetailsGrid from '../ProductDetailsGrid'
 
-const ProductsGrid = ({data, addToCart}) => (
+const ProductsGrid = ({data, addToCart, selectProduct}) => (
   <div className='products-grid-wrapper'>
     <div className='products-grid'>
       {data.map(product => (
         <ProductDetailsGrid
+          selectProduct={selectProduct}
           data={product}
           addToCart={addToCart}
           key={product._id}

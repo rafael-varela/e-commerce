@@ -2,8 +2,8 @@ import React from 'react';
 import ProductForm from '../ProductForm'
 import './styles.css';
 
-const ProductDetailsList = ({ data, addToCart }) => (
-  <div className='product-list-details'>
+const ProductDetailsList = ({ data, addToCart, selectProduct }) => (
+  <div className='product-list-details' onClick={() => selectProduct(data)}>
     <div className='product-list-image'>
       <img alt={data.name} src={data.picture}/>
     </div>

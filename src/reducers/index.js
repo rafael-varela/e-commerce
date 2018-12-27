@@ -4,7 +4,7 @@ const initialState = {
   productsData: [],
   cart: [],
   grid: true,
-  selectedProduct: {}
+  selectedProduct: null
 };
 
 const eCommerceApp = (state = initialState, action) => {
@@ -26,9 +26,10 @@ const eCommerceApp = (state = initialState, action) => {
         grid: action.payload.grid
       };
     case actionTypes.SELECT_PRODUCT:
+      const product = action.payload.product;
       return {
         ...state,
-        selectedProduct: { ...action.payload.product }
+        selectedProduct: product ? { ...product } : product
       }
     default:
       return state;

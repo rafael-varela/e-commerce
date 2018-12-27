@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import './styles.css';
 import ProductDetailsList from '../ProductDetailsList'
 
-const ProductsList = ({data, addToCart}) => (
+const ProductsList = ({data, addToCart, selectProduct}) => (
   <div className='products-list-wrapper'>
     <div className='products-list'>
       {data.map(product => (
         <ProductDetailsList
+          selectProduct={selectProduct}
           data={product}
           addToCart={addToCart}
           key={product._id}
