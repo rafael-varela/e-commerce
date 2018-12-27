@@ -12,7 +12,7 @@ class Products extends Component {
   }
 
   render() {
-    const { grid, productsData, addToCart, selectedProduct, selectProduct, goToProducts } = this.props
+    const { grid, productsData, addToCart, selectedProduct, selectProduct } = this.props
     return (
       selectedProduct ? (
         <SelectedProductDetails

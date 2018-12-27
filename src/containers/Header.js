@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 
-class AppHeader extends Component {
+const AppHeader = props => (
+  <Header cart={props.cart}/>
+)
+const mapStateToProps = state => ({
+  cart: state.cart
+});
 
-  render() {
-    return (
-      <Header/>
-    )
-  }
-}
-
-export default connect(null, null)(AppHeader);
+export default connect(mapStateToProps)(AppHeader);

@@ -2,9 +2,7 @@
   display: flex;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-  cursor: pointer;
   justify-content: center;
-  /* flex-flow: column; */
 }
 
 .selected-product-details {
