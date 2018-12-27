@@ -4,11 +4,17 @@ const PRODUCTS_LIST_LOADING = 'PRODUCTS_LIST_LOADING';
 const PRODUCTS_LIST_SUCCESS = 'PRODUCTS_LIST_SUCCESS';
 const PRODUCTS_LIST_ERROR = 'PRODUCTS_LIST_ERROR';
 const ADD_TO_CART = 'ADD_TO_CART';
+const TOGGLE_GRID = 'TOGGLE_GRID';
 
 export const addToCart = (data, n) => ({
   type: ADD_TO_CART,
   payload: { data, n }
-})
+});
+
+export const toggleGrid = grid => ({
+  type: TOGGLE_GRID,
+  payload: { grid }
+});
 
 const productsListLoading = () => ({
   type: PRODUCTS_LIST_LOADING
@@ -39,5 +45,6 @@ export const actionTypes = {
   PRODUCTS_LIST_LOADING,
   PRODUCTS_LIST_SUCCESS,
   PRODUCTS_LIST_ERROR,
-  ADD_TO_CART
+  ADD_TO_CART,
+  TOGGLE_GRID
 };

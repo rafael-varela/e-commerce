@@ -2,7 +2,8 @@ import { actionTypes } from '../actions';
 
 const initialState = {
   productsList: [],
-  cart: []
+  cart: [],
+  grid: true
 };
 
 const eCommerceApp = (state = initialState, action) => {
@@ -11,12 +12,17 @@ const eCommerceApp = (state = initialState, action) => {
       return {
         ...state,
         productsList: action.payload
-      }
+      };
     case actionTypes.ADD_TO_CART:
       const { data, n: quantity} = action.payload
       return {
         ...state,
         cart: [...state.cart, { ...data, quantity }]
+      };
+    case actionTypes.TOGGLE_GRID:
+      return {
+        ...state,
+        grid: action.payload.grid
       }
     default:
       return state;

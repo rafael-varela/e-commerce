@@ -1,0 +1,15 @@
+.filters {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 50px;
+}
+
+.filters i {
+  margin: 5px;
+  cursor: pointer;
+  color: #666666
+}
+
+.filters i.selected {
+  color: #000000;
+}
