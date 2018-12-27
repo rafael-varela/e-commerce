@@ -1,7 +1,8 @@
 import React from 'react';
+import ProductForm from '../ProductForm'
 import './styles.css';
 
-const ProductDetails = ({ data }) => (
+const ProductDetails = ({ data, addToCart }) => (
   <div className='product-details'>
     <div className='product-image'>
       <img alt={data.name} src={data.picture}/>
@@ -13,6 +14,7 @@ const ProductDetails = ({ data }) => (
       <div className='product-price'>
         <p>{data.price}</p>
       </div>
+      <ProductForm stock={data.stock} addToCart={(n) => addToCart(data, n)}/>
     </div>
   </div>
 );
