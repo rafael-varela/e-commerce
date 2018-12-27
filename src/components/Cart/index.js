@@ -1,11 +1,10 @@
 import React from 'react';
 import './styles.css';
-import { buyProducts } from '../../actions';
 
 const getSubtotal = (price, quantity) => {
   const p = Number(price.replace('$', '').replace(',',''))
   const q = Number(quantity)
-  return `$${q*p}`;
+  return `$${(q*p).toFixed(2)}`;
 }
 
 const getTotal = (data) => {
@@ -13,7 +12,7 @@ const getTotal = (data) => {
   data.forEach(product => {
     total += Number(getSubtotal(product.price, product.quantity).replace('$', ''))
   })
-  return `$${total}`;
+  return `$${total.toFixed(2)}`;
 }
 
 const Cart = ({ data, buyProducts }) => (
