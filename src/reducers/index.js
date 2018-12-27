@@ -16,9 +16,10 @@ const eCommerceApp = (state = initialState, action) => {
       };
     case actionTypes.ADD_TO_CART:
       const { data, n: quantity} = action.payload
+      const cart = state.cart.filter(p => p._id !== data._id)
       return {
         ...state,
-        cart: [...state.cart, { ...data, quantity }]
+        cart: [...cart, { ...data, quantity }]
       };
     case actionTypes.TOGGLE_GRID:
       return {
