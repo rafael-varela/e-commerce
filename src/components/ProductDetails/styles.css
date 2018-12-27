@@ -1,0 +1,25 @@
+.product-details {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.product-image > img {
+  width: 100%;
+}
+
+.product-description {
+  height: 30px;
+  padding: 3px 10px;
+}
+
+.product-price-wrapper {
+  display: flex;
+}
+
+.product-price {
+  width: 30%;
+  padding: 0 10px;
+}

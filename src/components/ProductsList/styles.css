@@ -1,0 +1,13 @@
+.products-list-wrapper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.products-list {
+  width: 70%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 30%);
+  justify-content: center;
+}
